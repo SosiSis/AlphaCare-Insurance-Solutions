@@ -3,7 +3,7 @@ stages:
     
 
   train:
-    cmd: python3 scripts/train.py --input data/pre_proccessed/pre_proccessed.csv --model model.pkl
+    cmd: python scripts/train.py --input data/pre_proccessed/pre_proccessed.csv --model model.pkl
     deps:
       - scripts/train.py
       - data/pre_proccessed/pre_proccessed.csv
@@ -13,7 +13,7 @@ stages:
       - train.model_params.max_iter
 
   evaluate:
-    cmd: python3 scripts/evaluate.py --input    - data/pre_processed/pre_processed.csv --model model.pkl --metrics metrics.json
+    cmd: python scripts/evaluate.py --input    - data/pre_processed/pre_processed.csv --model model.pkl --metrics metrics.json
     deps:
       - scripts/evaluate.py
       - data/pre_proccessed/pre_proccessed.csv
