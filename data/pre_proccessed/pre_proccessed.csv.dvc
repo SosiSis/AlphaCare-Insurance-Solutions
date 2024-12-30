@@ -1,0 +1,5 @@
+outs:
+- md5: b4ab0ac40350953960ff9c89c151222f
+  size: 530463443
+  hash: md5
+  path: pre_proccessed.csv
