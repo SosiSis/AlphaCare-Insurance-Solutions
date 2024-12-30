@@ -1,0 +1,25 @@
+stages:
+  
+    
+
+  train:
+    cmd: python scripts/train.py --input data/pre_proccessed/pre_proccessed.csv --model model.pkl
+    deps:
+      - scripts/train.py
+      - data/pre_proccessed/pre_proccessed.csv
+    outs:
+      - model.pkl
+    params:
+      - train.model_params.max_iter
+
+  evaluate:
+    cmd: python scripts/evaluate.py --input    - data/pre_processed/pre_processed.csv --model model.pkl --metrics metrics.json
+    deps:
+      - scripts/evaluate.py
+      - data/pre_proccessed/pre_proccessed.csv
+      - model.pkl
+    metrics:
+      - metrics.json:
+          cache: false
+      - metrics.yaml:
+          cache: false
